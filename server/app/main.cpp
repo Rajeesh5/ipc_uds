@@ -25,6 +25,9 @@ void SignalHandler(int signal) {
 }
 
 int main(int argc, char* argv[]) {
+    (void)argc; // Not using command-line arguments currently
+    (void)argv; // Reserved for future configuration options
+    
     std::cout << "=== IPC Demo Server ===" << std::endl;
     std::cout << "Socket path: " << Protocol::UDS_PATH << std::endl;
     std::cout << "Press Ctrl+C to stop\n" << std::endl;

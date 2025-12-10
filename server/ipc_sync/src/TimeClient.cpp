@@ -74,6 +74,9 @@ struct TimeClient::Impl {
             }
 
             uint8_t version = response_buf.GetByte();
+            (void)version; // Protocol version for future use
+            (void)frame_len; // Frame length already validated
+            
             uint8_t status = response_buf.GetByte();
             std::string timestamp = response_buf.GetString();
             int64_t unix_timestamp = response_buf.GetLong();

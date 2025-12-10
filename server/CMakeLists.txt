@@ -31,3 +31,13 @@ add_subdirectory(services)
 # 4. Server application (depends on services and server_core)
 add_subdirectory(app)
 
+# 5. Unit tests (optional, only if GTest is available)
+find_package(GTest QUIET)
+if(GTest_FOUND)
+    enable_testing()
+    add_subdirectory(utest)
+    message(STATUS "Unit tests enabled")
+else()
+    message(STATUS "GTest not found, skipping unit tests")
+endif()
+

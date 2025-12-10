@@ -291,6 +291,7 @@ bool UDSServer::HandleClientData(int client_fd) {
 
     // Process the request
     size_t response_len = ProcessClientRequest(client_fd, buffer, bytes_read);
+    (void)response_len; // Response sent directly to client in ProcessClientRequest
     
     return true; // Keep connection alive
 }
@@ -345,6 +346,8 @@ size_t UDSServer::ProcessClientRequest(int client_fd, const uint8_t* data, size_
         }
 
         uint32_t frame_len = request.GetInt();
+        (void)frame_len; // Frame length already validated in protocol parsing
+        
         uint32_t routine_id = request.GetInt();
         uint8_t version = request.GetByte();
 

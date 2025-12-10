@@ -79,6 +79,9 @@ struct Calculator::Impl {
             }
 
             uint8_t version = response_buf.GetByte();
+            (void)version; // Protocol version for future use
+            (void)frame_len; // Frame length already validated
+            
             uint8_t status = response_buf.GetByte();
             double value = response_buf.GetDouble();
             std::string error_msg = response_buf.GetString();
