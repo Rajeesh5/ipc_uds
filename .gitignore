@@ -41,5 +41,6 @@
 *.dwo
 
 client/build/
-server/build
+server/build/
+common/build/
 shared/
